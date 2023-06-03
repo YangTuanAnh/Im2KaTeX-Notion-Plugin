@@ -4,14 +4,14 @@ from PIL import Image
 
 os.system("pip install pix2tex python-dotenv")
 
-from dotenv import load_dotenv
-load_dotenv()
-key = os.getenv('NOTION_KEY')
+# from dotenv import load_dotenv
+# load_dotenv()
+# key = os.getenv('NOTION_KEY')
 
 from pix2tex import cli as pix2tex
 
 headers = {
-    "Authorization": "Bearer " + key,
+    "Authorization": "Bearer " + st.secrets['NOTION_KEY'],
     "Content-Type": "application/json",
     "Notion-Version": "2022-06-28"
 }
