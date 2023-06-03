@@ -2,8 +2,7 @@ import streamlit as st
 import requests, json, os
 from PIL import Image
 
-os.system("pip install pix2tex")
-os.system("pip install python-dotenv")
+os.system("pip install pix2tex python-dotenv")
 
 from dotenv import load_dotenv
 load_dotenv()
