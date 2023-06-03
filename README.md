@@ -6,18 +6,15 @@ This is an MVP Submission to the CinnamonAI Full Stack AI Bootcamp. The purpose 
 
 ## Structure
 
-The Streamlit app takes in the user's Notion page ID (or any Notion block that could hold children blocks) and an image with math notation. An underlying model converts the math notation into the equivalent KaTeX notation (Notion's version of LaTeX, however Notion still accepts regular LaTeX), then creating a new equation block for that page via a PATCH call to Notion's API.
+The Streamlit app takes in the user's Notion page ID (or any Notion block that could hold children blocks) and an image with math notation. An Pix2Tex model converts the math notation into the equivalent KaTeX notation (Notion's version of LaTeX, however Notion still accepts regular LaTeX), then creating a new equation block for that page via a PATCH call to Notion's API.
 
-Note: The user needs to add plugin connection beforehand in order for the app to identify the page.
+Note: The user needs to add the Notion plugin connection beforehand in order for the app to identify the page.
 
-## Im2LaTeX
+## Pix2Tex
 
-The model was reimplemented from a paper introducted by Deng et al. in [Image-to-Markup Generation with Coarse-to-Fine Attention](https://paperswithcode.com/paper/image-to-markup-generation-with-coarse-to)
+The model comes from the Pix2Tex package, authored by Lukas Blecher from the [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR) repository. The model consist of a ViT encoder with a ResNet backbone and a Transformer decoder.
 
-A prebuilt dataset for OpenAI's task for image-2-latex system. Includes total of ~100k formulas and images splitted into train, validation and test sets. Formulas were parsed from LaTeX sources provided here: http://www.cs.cornell.edu/projects/kddcup/datasets.html (originally from arXiv)
+## Struggles
 
-Each image is a PNG image of fixed size. Formula is in black and rest of the image is transparent.
+There was an attempt to reimplement [Sujay et al.](https://sujayr91.github.io/Im2Latex/) and [Deng et al.](https://paperswithcode.com/dataset/im2latex-100k)'s papers, yet proven to be unsuccessful due to constraints. Future iterations of this project will include a seperate API for the model, as well as higher accuracy for handwritten math notations.
 
-For related tools (eg. tokenizer) check out this repository: https://github.com/Miffyli/im2latex-dataset For pre-made evaluation scripts and built im2latex system check this repository: https://github.com/harvardnlp/im2markup
-
-Newlines used in formulas_im2latex.lst are UNIX-style newlines (\n). Reading file with other type of newlines results to slightly wrong amount of lines (104563 instead of 103558), and thus breaks the structure used by this dataset. Python 3.x reads files using newlines of the running system by default, and to avoid this file must be opened with newlines="\n" (eg. open("formulas_im2latex.lst", newline="\n")).

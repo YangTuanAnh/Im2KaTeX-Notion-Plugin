@@ -1,6 +1,8 @@
 import streamlit as st
 import requests, json, os
+from pix2tex import cli as pix2tex
 from dotenv import load_dotenv
+from PIL import Image
 load_dotenv()
 
 key = os.getenv('NOTION_KEY')
@@ -9,6 +11,8 @@ headers = {
     "Content-Type": "application/json",
     "Notion-Version": "2022-06-28"
 }
+
+model = pix2tex.LatexOCR()
 
 def uploadKaTeX(pageID, equation):
     updateUrl = f"https://api.notion.com/v1/blocks/{pageID}/children"
@@ -32,6 +36,10 @@ def uploadKaTeX(pageID, equation):
     else:
         st.success("Equation added", icon="✅")
     
+def getPrediction(picture):
+    img = Image.open(picture)
+    output = model(img)
+    return output
         
 st.title('Im2KaTeX Notion Plugin')
 
@@ -45,9 +53,9 @@ else:
 if picture:
     st.image(picture)
     st.subheader("Prediction")
-    # GET /predict, data = image -> pred
-    pred = "\sin{x}^2 + \cos{x}^2 = 1"
-    st.latex(pred)
-    st.text(pred)
+    pred = getPrediction(picture)
+    #pred = "\sin{x}^2 + \cos{x}^2 = 1"
+    #output = st.text_area("Edit KaTeX here", pred)
+    st.latex(st.text_area("Edit KaTeX here", pred))
     if st.button('Upload to Notion page'):
         uploadKaTeX(page_id, pred)
