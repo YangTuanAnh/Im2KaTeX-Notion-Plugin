@@ -1,12 +1,14 @@
 import streamlit as st
 import requests, json, os
-from pix2tex import cli as pix2tex
-from dotenv import load_dotenv
 from PIL import Image
+
+from dotenv import load_dotenv
 load_dotenv()
+key = os.getenv('NOTION_KEY')
 
 os.system("pip install pix2tex")
-key = os.getenv('NOTION_KEY')
+from pix2tex import cli as pix2tex
+
 headers = {
     "Authorization": "Bearer " + key,
     "Content-Type": "application/json",
