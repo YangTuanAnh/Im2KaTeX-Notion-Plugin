@@ -37,6 +37,7 @@ def uploadKaTeX(pageID, equation):
     else:
         st.success("Equation added", icon="✅")
     
+@st.cache
 def getPrediction(picture):
     img = Image.open(picture)
     output = model(img)
