@@ -3,7 +3,7 @@ import requests, json, os
 from PIL import Image
 
 os.system("pip install pix2tex")
-os.system("pip install dotenv")
+os.system("pip install python-dotenv")
 
 from dotenv import load_dotenv
 load_dotenv()
