@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from PIL import Image
 load_dotenv()
 
+os.system("pip install pix2tex")
 key = os.getenv('NOTION_KEY')
 headers = {
     "Authorization": "Bearer " + key,
