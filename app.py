@@ -2,8 +2,6 @@ import streamlit as st
 import requests, json, os
 from PIL import Image
 
-os.system("pip install pix2tex")
-
 # from dotenv import load_dotenv
 # load_dotenv()
 # key = os.getenv('NOTION_KEY')
