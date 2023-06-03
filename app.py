@@ -2,11 +2,13 @@ import streamlit as st
 import requests, json, os
 from PIL import Image
 
+os.system("pip install pix2tex")
+os.system("pip install dotenv")
+
 from dotenv import load_dotenv
 load_dotenv()
 key = os.getenv('NOTION_KEY')
 
-os.system("pip install pix2tex")
 from pix2tex import cli as pix2tex
 
 headers = {
