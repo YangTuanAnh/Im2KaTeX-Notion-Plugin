@@ -47,7 +47,7 @@ def getPrediction(picture):
 def redirect_button(url: str, text: str= None, color="#FD504D"):
     st.markdown(
     f"""
-    <a href="{url}" target="_self">
+    <a href="{url}" target="_blank">
         <div style="
             display: inline-block;
             padding: 0.5em 1em;
