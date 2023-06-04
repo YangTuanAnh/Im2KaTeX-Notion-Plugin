@@ -1,1 +1,2 @@
 pix2tex
+webbrowser
