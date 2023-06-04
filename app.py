@@ -33,10 +33,11 @@ def uploadKaTeX(pageID, equation):
     with st.spinner("Wait for it..."):
         response = requests.request("PATCH", updateUrl, headers=headers, data=data)
         
-    if response == 500:
-        st.error('Page ID is empty or does not exist', icon="❌")
-    else:
+    if response == 200:
         st.success("Equation added", icon="✅")
+    else:
+        st.error('Page ID is empty, unathorized, or does not exist', icon="❌")
+        
     
 def getPrediction(picture):
     img = Image.open(picture)
@@ -45,8 +46,8 @@ def getPrediction(picture):
         
 st.title('Im2KaTeX Notion Plugin')
 
-st.markdown('<a>https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fyangtuananh-im2katex-notion-plugin-app-qucmyk.streamlit.app%2F</a>')
-    
+if st.button('Authorize Integration to Notion account'):
+    webbrowser.open_new_tab("https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fyangtuananh-im2katex-notion-plugin-app-qucmyk.streamlit.app%2F")
 
 page_id = st.text_input("Notion Page ID")
 
