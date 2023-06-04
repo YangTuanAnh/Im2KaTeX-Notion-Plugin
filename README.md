@@ -25,18 +25,13 @@ pip install python-dotenv pix2tex
 streamlit run app.py
 ```
 
-In development, please uncomment this section to use the .env variables and replace with your Notion integration key
+In development, you need to have a `/.streamlit/secrets.toml` file and replace with your Notion integration key as such
 
-```py
-from dotenv import load_dotenv
-load_dotenv()
-key = os.getenv('NOTION_KEY')
-```
-
-In deployment, instead of having an .env file, you may add your Notion Key under the Secrets tab as
 ```
 NOTION_KEY = "secret_123abc"
 ```
+
+In deployment, you may need to paste the contents of `/.streamlit/secrets.toml` into the Secret settings for environment variables to work
 
 ## Struggles
 

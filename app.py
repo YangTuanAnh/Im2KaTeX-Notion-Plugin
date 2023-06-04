@@ -3,10 +3,6 @@ import requests, json
 from PIL import Image
 from pix2tex import cli as pix2tex
 
-# from dotenv import load_dotenv
-# load_dotenv()
-# key = os.getenv('NOTION_KEY')
-
 @st.cache_resource
 def load_model():
 	  return pix2tex.LatexOCR()
@@ -36,7 +32,8 @@ def uploadKaTeX(pageID, equation):
     with st.spinner("Wait for it..."):
         response = requests.request("PATCH", updateUrl, headers=headers, data=data)
         
-    if response == 200 or response == 400:
+    print(response)
+    if response.status_code == 200:
         st.success("Equation added", icon="✅")
     else:
         st.error('Page ID is empty, unathorized, or does not exist', icon="❌")
