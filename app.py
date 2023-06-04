@@ -75,7 +75,7 @@ if st.checkbox('Upload with Camera'):
 else:
     picture = st.file_uploader("Choose a file", type=['png', 'jpg'])
 
-if picture:
+if picture is not None:
     st.image(picture)
     st.subheader("Prediction")
     pred = getPrediction(picture)
