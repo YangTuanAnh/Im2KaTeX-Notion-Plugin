@@ -67,7 +67,7 @@ def redirect_button(url: str, text: str= None, color="#FD504D"):
 
 def main():
     st.title('Im2KaTeX Notion Plugin')
-    url = "https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fyangtuananh-im2katex-notion-plugin-app-qucmyk.streamlit.app%2F"
+    url = "https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fim2katex-notion-plugin.streamlit.app%2F"
     redirect_button(url,"Authorize Integration to Notion account")
 
     page_id = st.text_input("Notion Page ID")
