@@ -33,7 +33,7 @@ def uploadKaTeX(pageID, equation):
     with st.spinner("Wait for it..."):
         response = requests.request("PATCH", updateUrl, headers=headers, data=data)
         
-    if response == 200:
+    if response == 200 or response == 400:
         st.success("Equation added", icon="✅")
     else:
         st.error('Page ID is empty, unathorized, or does not exist', icon="❌")
