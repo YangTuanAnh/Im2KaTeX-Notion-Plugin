@@ -14,7 +14,11 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
-model = pix2tex.LatexOCR()
+@st.cache
+def load_model():
+	  return pix2tex.LatexOCR()
+
+model = load_model()
 
 def uploadKaTeX(pageID, equation):
     updateUrl = f"https://api.notion.com/v1/blocks/{pageID}/children"
