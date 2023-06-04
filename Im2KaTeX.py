@@ -38,13 +38,15 @@ def uploadKaTeX(pageID, equation):
     else:
         st.success("Equation added", icon="✅")
     
-@st.cache
 def getPrediction(picture):
     img = Image.open(picture)
     output = model(img)
     return output
         
 st.title('Im2KaTeX Notion Plugin')
+
+st.markdown('<a>https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fyangtuananh-im2katex-notion-plugin-app-qucmyk.streamlit.app%2F</a>')
+    
 
 page_id = st.text_input("Notion Page ID")
 
