@@ -14,7 +14,7 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
-@st.cache
+@st.cache_resource
 def load_model():
 	  return pix2tex.LatexOCR()
 
