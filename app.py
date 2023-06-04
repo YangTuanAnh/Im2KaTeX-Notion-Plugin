@@ -69,7 +69,7 @@ url = "https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f
 redirect_button(url,"Authorize Integration to Notion account")
 
 page_id = st.text_input("Notion Page ID")
-
+st.write("https://www.notion.so/Personal-Home- **6b241a4133ba4db18f5bd9fbc76e6856** 👈 Example Page ID")
 if st.checkbox('Upload with Camera'):
     picture = st.camera_input("Take a picture")
 else:

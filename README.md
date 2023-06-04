@@ -42,3 +42,5 @@ NOTION_KEY = "secret_123abc"
 
 There was an attempt to reimplement [Sujay et al.](https://sujayr91.github.io/Im2Latex/) and [Deng et al.](https://paperswithcode.com/dataset/im2latex-100k)'s papers, yet proven to be unsuccessful due to constraints. Future iterations of this project will include a seperate API for the model, as well as higher accuracy for handwritten math notations.
 
+OAuth Authorization may be unstable, and will be revisioned in the future.
+
