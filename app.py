@@ -43,14 +43,30 @@ def getPrediction(picture):
     img = Image.open(picture)
     output = model(img)
     return output
+
+def redirect_button(url: str, text: str= None, color="#FD504D"):
+    st.markdown(
+    f"""
+    <a href="{url}" target="_self">
+        <div style="
+            display: inline-block;
+            padding: 0.5em 1em;
+            color: #FFFFFF;
+            background-color: {color};
+            border-radius: 3px;
+            text-decoration: none;">
+            {text}
+        </div>
+    </a>
+    """,
+    unsafe_allow_html=True
+    )
+
         
 st.title('Im2KaTeX Notion Plugin')
 url = "https://api.notion.com/v1/oauth/authorize?client_id=abf6a6f6-1369-488e-8f23-18ee7ad157b2&response_type=code&owner=user&redirect_uri=https%3A%2F%2Fyangtuananh-im2katex-notion-plugin-app-qucmyk.streamlit.app%2F"
 
-st.markdown(f'''
-<button href={url}>Authorize Integration to Notion account</button>
-''',
-unsafe_allow_html=True)
+redirect_button(url,"Authorize Integration to Notion account")
 
 page_id = st.text_input("Notion Page ID")
 
