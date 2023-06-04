@@ -4,6 +4,8 @@
 
 This is an MVP Submission to the CinnamonAI Full Stack AI Bootcamp. The purpose of this project is to evaluate the candidates' modelling and engineering skills before the bootcamp.
 
+[Youtube Demo](https://www.youtube.com/watch?v=g54oVOdBtSY)
+
 ## Structure
 
 The Streamlit app takes in the user's Notion page ID (or any Notion block that could hold children blocks) and an image with math notation. An Pix2Tex model converts the math notation into the equivalent KaTeX notation (Notion's version of LaTeX, however Notion still accepts regular LaTeX), then creating a new equation block for that page via a PATCH call to Notion's API.
